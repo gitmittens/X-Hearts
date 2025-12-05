@@ -1,0 +1,1 @@
+execute as @a unless score @s deaths = @s last_deaths run function xlife:calc_health
