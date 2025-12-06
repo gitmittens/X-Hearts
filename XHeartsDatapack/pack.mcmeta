@@ -1,7 +1,10 @@
 {
-  "pack": {
-    "description": "Made by cruelmittens | Gain a heart every time you die",
-    "min_format": 88,
-    "max_format": 88
-  }
+    "pack": {
+        "pack_format": 57,
+        "supported_formats": {
+            "min_inclusive": 57,
+            "max_inclusive": 88
+        },
+        "description": "Made by cruelmittens | Gain a heart every time you die"
+    }
 }
