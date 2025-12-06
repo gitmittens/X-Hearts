@@ -1,5 +1,20 @@
-# X-Hearts
-A Minecraft Datapack based on the X Life series on YouTube. You start on one heart, every time you die you gain a heart. But if you die at 10 hearts you die forever.
-
-## Download on Modrinth
+# Download on Modrinth
 [https://modrinth.com/datapack/x-hearts](https://modrinth.com/project/t49XiTeY)
+
+# X-Hearts
+Start on one heart, gain a heart every time you die. If you die at 10 hearts you are permanently dead.
+
+Use `/scoreboard players set @s deaths 0` to reset back to 1 heart
+
+Inspired by the X-Life series
+
+## FAQ
+**Does this work on a server?**
+Yes. Go into your servers folders and go to `world -> datapacks` and put the datapack there. This datapack works multiplayer so play with however many people you would like!
+
+## Support us!
+[![Join the discord](https://cdn.modrinth.com/data/cached_images/45d5fb56712347ed406fc3cc09bad51ec03e1c0c.png)](https://discord.gg/C2WymfUqJx)
+
+**Join the discord to get updates, support me, and report issues**
+
+Join my Minecraft server **ZoneRush.minekeep.gg** for a unique PvP gamemode!
