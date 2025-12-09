@@ -6,7 +6,7 @@ scoreboard players add #temp xlife_calc 1
 
 scoreboard players operation #temp xlife_calc *= #const_2 xlife_calc
 
-execute if score #temp xlife_calc matches 21.. run gamemode spectator
+execute if score #temp xlife_calc matches 21.. if data storage xhearts:config {HardcoreMode:1b} run gamemode spectator
 
 execute store result storage xlife:ram hp int 1 run scoreboard players get #temp xlife_calc
 
