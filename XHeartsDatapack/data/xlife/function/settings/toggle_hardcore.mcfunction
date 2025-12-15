@@ -1,15 +1,17 @@
-# 1. Check current state. If TRUE (1b), switch to FALSE (0b)
-execute if data storage xhearts:config {HardcoreMode:1b} run data modify storage xhearts:config HardcoreMode set value 0b
+# 1. Clear temp tags just in case
+tag @s remove xhearts_is_currently_on
 
-# 2. If it is now FALSE (0b) (meaning we just turned it off), verify and tag the player so we don't accidentally turn it back on in the next step
-execute unless data storage xhearts:config {HardcoreMode:1b} run tag @s add xh_just_toggled
+# 2. Snapshot the current state: Is it ON right now?
+execute if data storage xhearts:config {HardcoreMode:1b} run tag @s add xhearts_is_currently_on
 
-# 3. If NOT tagged (meaning it started as False), switch to TRUE (1b)
-execute unless entity @s[tag=xh_just_toggled] run data modify storage xhearts:config HardcoreMode set value 1b
+# 3. LOGIC: If it WAS on, turn it OFF.
+execute if entity @s[tag=xhearts_is_currently_on] run data modify storage xhearts:config HardcoreMode set value 0b
 
-# 4. Cleanup the tag
-tag @s remove xh_just_toggled
+# 4. LOGIC: If it WAS NOT on, turn it ON.
+execute unless entity @s[tag=xhearts_is_currently_on] run data modify storage xhearts:config HardcoreMode set value 1b
 
-# 5. Feedback Message
-execute if data storage xhearts:config {HardcoreMode:1b} run tellraw @a {"text":"Hardcore Mode: ENABLED","color":"red","bold":true}
-execute unless data storage xhearts:config {HardcoreMode:1b} run tellraw @a {"text":"Hardcore Mode: DISABLED","color":"green","bold":true}
+# 5. Feedback & Cleanup
+execute if data storage xhearts:config {HardcoreMode:1b} run tellraw @a {"text":"Hardcore Mode: ENABLED","color":"red"}
+execute unless data storage xhearts:config {HardcoreMode:1b} run tellraw @a {"text":"Hardcore Mode: DISABLED","color":"green"}
+
+tag @s remove xhearts_is_currently_on
